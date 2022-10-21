@@ -1,3 +1,11 @@
+" vim-plug, see https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'wakatime/vim-wakatime'
+Plug 'rakr/vim-one'   " tell Vim to load the theme/plugin
+Plug 'NLKNguyen/papercolor-theme'
+call plug#end()
+
+
 set t_Co=256
 
 set background=dark
