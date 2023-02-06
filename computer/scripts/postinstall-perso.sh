@@ -23,8 +23,11 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ## Copy personal config
 ### Vim
 curl -sSl https://raw.githubusercontent.com/ikuroNoriiwa/personal_configurations/master/computer/app/vim/.vimrc -o $HOME/.vimrc
+mkdir $HOME/.vimrc/colors -p
+curl -sSl https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/colors/PaperColor.vim -o $HOME/.vimrc/colors/PaperColor.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ### ZSH
 curl -sSl https://raw.githubusercontent.com/ikuroNoriiwa/personal_configurations/master/computer/shell/zsh/.zshrc -o $HOME/.zshrc
-curl -sSl https://github.com/ikuroNoriiwa/personal_configurations/blob/master/computer/shell/zsh/.zshrc.pre-oh-my-zsh -o $HOME/.zshrc.pre-oh-my-zsh
+curl -sSl https://raw.githubusercontent.com/ikuroNoriiwa/personal_configurations/master/computer/shell/zsh/.zshrc.pre-oh-my-zsh -o $HOME/.zshrc.pre-oh-my-zsh
 curl -sSl https://raw.githubusercontent.com/ikuroNoriiwa/personal_configurations/master/computer/aliases/.zsh.aliases -o $HOME/.zsh.aliases
