@@ -1,0 +1,2 @@
+# Use multiple yaml
+export KUBECONFIG=$(find ~/.kube -type f -name "*.yaml" -printf '%p:' | sed 's/:$/\n/')
