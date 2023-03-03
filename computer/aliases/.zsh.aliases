@@ -1,4 +1,5 @@
 alias confi3wm="vim /home/$USER/.config/i3/config"
+alias history=omz_history
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
@@ -12,9 +13,14 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-alias l='exa -lah'
-alias la='exa -lAh'
-alias ll='exa -lh'
-alias ls='exa -l'
-alias lsa='exa -lah'
-alias history=omz_history
+
+ls_var="exa"
+if ! command -v exa &> /dev/null
+then
+    ls_var="ls"
+fi
+alias l="$ls_var -lah"
+alias la="$ls_var -lAh"
+alias ll="$ls_var -lh"
+alias ls="$ls_var -l"
+alias lsa="$ls_var -lah"
