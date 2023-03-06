@@ -1,2 +1,7 @@
 # Use multiple yaml
 export KUBECONFIG=$(find ~/.kube -type f -name "*.yaml" -printf '%p:' | sed 's/:$/\n/')
+
+if [[ "$SHELL" == *"zsh" ]]
+then 
+	source <(kubectl completion zsh)
+fi 	
