@@ -1,0 +1,9 @@
+gcloud_sa_roles(){
+	# $1: Project Name 
+	# $2: Service account 
+	
+	if [ $# -ne 2 ]; 
+		then echo "test"
+	fi 
+	gcloud projects get-iam-policy $1 --flatten="bindings[].members" --format="table(bindings.role)" --filter="bindings.members:$2"	 
+}
