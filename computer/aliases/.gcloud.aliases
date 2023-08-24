@@ -1,9 +1,23 @@
 gcloud_sa_roles(){
 	# $1: Project Name 
 	# $2: Service account 
-	
-	if [ $# -ne 2 ]; 
-		then echo "test"
-	fi 
-	gcloud projects get-iam-policy $1 --flatten="bindings[].members" --format="table(bindings.role)" --filter="bindings.members:$2"	 
+
+	if [ $# -eq 1 ]; then 
+		_gcloud_sa_roles_help_menu $0
+	elif [ "$1" = "add" ]; then
+		gcloud projects add-iam-policy-binding  $2 --member="serviceAccount:$3@$2.iam.gserviceaccount.com" --role="$4"
+	elif [ "$1" = "list" ]; then
+		gcloud projects get-iam-policy $2 --flatten="bindings[].members" --format="table(bindings.role)" --filter="bindings.members:$3"	 
+	else 
+		_gcloud_sa_roles_help_menu $0
+	fi   
+}
+
+_gcloud_sa_roles_help_menu(){
+	echo "Command name argument expected."
+	echo 
+	echo "Available command groups for $1"
+	echo -e "\tRoles: "
+	echo -e "\t\tlist <ProjectName> <ServiceAccountName>\t\t\t List Roles linked to Service Account"
+	echo -e "\t\tadd <ProjectName> <ServiceAccountName> <RoleName>\t Add new Role"
 }
